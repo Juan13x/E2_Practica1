@@ -4,6 +4,7 @@ import android.app.DatePickerDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import com.example.lab1_p2.R
 import com.example.lab1_p2.databinding.ActivityMainBinding
 import java.text.SimpleDateFormat
@@ -11,12 +12,15 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var model: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        model = ViewModelProvider(this)[MainViewModel::class.java]
 
         val calendar = Calendar.getInstance()
 
@@ -51,58 +55,47 @@ class MainActivity : AppCompatActivity() {
                 val password = passwordTextInputEditText.text.toString()
                 val repeatPassword = repeatPasswordTextInputEditText.text.toString()
                 val birthday = birthdayButton.text.toString()
+                val defaultBirthdayText = getString(R.string.button_birthday)
 
-                if (name.isEmpty()){
-                    Toast.makeText(this@MainActivity, getString(R.string.error_empty_name), Toast.LENGTH_SHORT).show()
-                }
-                else if (email.isEmpty()){
-                    Toast.makeText(this@MainActivity, getString(R.string.error_empty_email), Toast.LENGTH_SHORT).show()
-                }
-                else if (password.isEmpty()){
-                    Toast.makeText(this@MainActivity, getString(R.string.error_empty_password), Toast.LENGTH_SHORT).show()
-                }
-                else if (repeatPassword.isEmpty()){
-                    Toast.makeText(this@MainActivity, getString(R.string.error_empty_Repeated_Password), Toast.LENGTH_SHORT).show()
-                }
-                else if (birthday == getString(R.string.button_birthday)){
-                    Toast.makeText(this@MainActivity, getString(R.string.error_empty_birthday), Toast.LENGTH_SHORT).show()
-                }
-                else{
-                    if(password == repeatPassword){
-                        val city = birthPlaceSpinner.selectedItem.toString()
-                        val gender =
-                            if (genderOption1RadioButton.isChecked)
-                                genderOption1RadioButton.text
-                            else
-                                genderOption2RadioButton.text
-                        var hobbies = ""
-                        if (hobbie1Chip.isChecked)
-                            hobbies += hobbie1Chip.text
-                        if (hobbie1Chip.isChecked)
-                            hobbies += ", " + hobbie1Chip.text
-                        if (hobbie1Chip.isChecked)
-                            hobbies += ", " + hobbie1Chip.text
-                        if (hobbie1Chip.isChecked)
-                            hobbies += ", " + hobbie1Chip.text
-                        if (hobbies.isNotBlank()){
-                            if(hobbies.substring(0, 2) == ", ")
-                                hobbies =  hobbies.substring(2, hobbies.lastIndex + 1)
-                        }
-                        infoResultTextView.text =
-                            getString(
-                                R.string.result,
-                                name,
-                                email,
-                                password,
-                                gender,
-                                hobbies,
-                                birthday,
-                                city)
-                    }
-                    else{
-                        Toast.makeText(this@MainActivity, getString(R.string.error_different_passwords), Toast.LENGTH_SHORT).show()
-                    }
-                }
+                model.CheckEmptiness(name, email, password, repeatPassword, birthday, defaultBirthdayText)
+            }
+
+            model.errorLiveData.observe(this@MainActivity){
+                error ->
+                Toast.makeText(this@MainActivity,getString(error),Toast.LENGTH_SHORT).show()
+            }
+
+            model.notEmptyAndRightPasswordLiveData.observe(this@MainActivity){
+                val city = birthPlaceSpinner.selectedItem.toString()
+                val gender1_text = genderOption1RadioButton.text.toString()
+                val gender1_isChecked = genderOption1RadioButton.isChecked
+                val gender2_text = genderOption2RadioButton.text.toString()
+                val hobbiesChecks = arrayOf<Boolean>(
+                    hobbie1Chip.isChecked,
+                    hobbie2Chip.isChecked,
+                    hobbie3Chip.isChecked,
+                    hobbie4Chip.isChecked)
+                val hobbiesTexts = arrayOf<String>(
+                    hobbie1Chip.text.toString(),
+                    hobbie2Chip.text.toString(),
+                    hobbie3Chip.text.toString(),
+                    hobbie4Chip.text.toString()
+                )
+                val resultFormat = getString(R.string.result)
+                model.result(
+                    city,
+                    gender1_text,
+                    gender1_isChecked,
+                    gender2_text,
+                    hobbiesChecks,
+                    hobbiesTexts,
+                    resultFormat
+                )
+            }
+
+            model.resultLiveData.observe(this@MainActivity){
+                result ->
+                infoResultTextView.text = result
             }
         }
     }

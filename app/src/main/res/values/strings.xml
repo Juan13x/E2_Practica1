@@ -25,7 +25,7 @@
 
     <string name="result">
         Name: %1$s, Email: %2$s
-        \nPassword: %3$s\nGender: %4$s
+        \nPassword: %3$s, Gender: %4$s
         \nHobbies: %5$s
         \nBirth Date: %6$s
         \nBirth City: %7$s

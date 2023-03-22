@@ -1,8 +1,9 @@
-package com.example.lab1_p2
+package com.example.lab1_p2.splash
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.lab1_p2.R
 import com.example.lab1_p2.main.MainActivity
 import java.util.Timer
 import kotlin.concurrent.timerTask
