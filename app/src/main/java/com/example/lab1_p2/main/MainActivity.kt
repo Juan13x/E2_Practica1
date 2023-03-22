@@ -78,12 +78,12 @@ class MainActivity : AppCompatActivity() {
                         var hobbies = ""
                         if (hobbie1Chip.isChecked)
                             hobbies += hobbie1Chip.text
-                        if (hobbie1Chip.isChecked)
-                            hobbies += ", " + hobbie1Chip.text
-                        if (hobbie1Chip.isChecked)
-                            hobbies += ", " + hobbie1Chip.text
-                        if (hobbie1Chip.isChecked)
-                            hobbies += ", " + hobbie1Chip.text
+                        if (hobbie2Chip.isChecked)
+                            hobbies += ", " + hobbie2Chip.text
+                        if (hobbie3Chip.isChecked)
+                            hobbies += ", " + hobbie3Chip.text
+                        if (hobbie4Chip.isChecked)
+                            hobbies += ", " + hobbie4Chip.text
                         if (hobbies.isNotBlank()){
                             if(hobbies.substring(0, 2) == ", ")
                                 hobbies =  hobbies.substring(2, hobbies.lastIndex + 1)
