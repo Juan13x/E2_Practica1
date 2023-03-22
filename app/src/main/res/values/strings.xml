@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Form</string>
+    <string name="title">Form</string>
+    <string name="info_name">Name:</string>
+    <string name="info_email">Email:</string>
+    <string name="info_hobbies">Hobbies:</string>
+    <string name="hobbie_1">Soccer</string>
+    <string name="hobbie_2">Baseball</string>
+    <string name="hobbie_3">Basket</string>
+    <string name="hobbie_4">Swimming</string>
+    <string name="info_birthday">Birthday</string>
+    <string name="button_birthday">Select</string>
+    <string name="info_gender">Gender:</string>
+    <string name="gender_option_1">Male</string>
+    <string name="gender_option_2">Female</string>
+    <string name="info_birthplace">BirthPlace:</string>
+    <string-array name="cities_birthplace">
+        <item>Medellín</item>
+        <item>Bogotá</item>
+        <item>Cali</item>
+        <item>Guajira</item>
+        <item>Meta</item>
+    </string-array>
+    <string name="Save_Button">Save</string>
+
+    <string name="result">
+        Name: %1$s, Email: %2$s
+        \nPassword: %3$s\nGender: %4$s
+        \nHobbies: %5$s
+        \nBirth Date: %6$s
+        \nBirth City: %7$s
+    </string>
+</resources>

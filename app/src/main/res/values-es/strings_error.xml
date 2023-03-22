@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_empty_name">Ingrese nombre, porFa</string>
+    <string name="error_empty_email">Ingrese email, porFa</string>
+    <string name="error_empty_password">No Ingresó Contraseña</string>
+    <string name="error_empty_Repeated_Password">No Ingreso Contraseña de Verificación</string>
+    <string name="error_empty_birthday">No ha seleccionado Fecha de Cumpleaños</string>
+    <string name="error_different_passwords">Las contraseñas son diferentes</string>
+</resources>

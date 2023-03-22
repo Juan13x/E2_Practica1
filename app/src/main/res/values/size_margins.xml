@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="title_top">32dp</dimen>
+    <dimen name="general_left">16dp</dimen>
+    <dimen name="general_right">16dp</dimen>
+    <dimen name="general_separation_different_types">16dp</dimen>
+    <dimen name="general_separation_to_info">4dp</dimen>
+    <dimen name="save_button_top">24dp</dimen>
+</resources>

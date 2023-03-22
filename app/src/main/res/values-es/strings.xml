@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Formulario</string>
+    <string name="title">Formulario</string>
+    <string name="info_name">Nombre</string>
+    <string name="info_email">Email</string>
+    <string name="info_hobbies">Pasatiempo</string>
+    <string name="hobbie_1">Futbol</string>
+    <string name="hobbie_2">tenis</string>
+    <string name="hobbie_3">Baloncesto</string>
+    <string name="hobbie_4">Natación</string>
+    <string name="info_birthday">Cumpleaños</string>
+    <string name="button_birthday">Seleccione</string>
+    <string name="info_gender">Genero</string>
+    <string name="gender_option_1">Masculino</string>
+    <string name="gender_option_2">Femenino</string>
+    <string name="info_birthplace">Lugar de Nacimiento</string>
+    <string-array name="cities_birthplace">
+        <item>Medellín</item>
+        <item>Bogotá</item>
+        <item>Cali</item>
+        <item>Guajira</item>
+        <item>Meta</item>
+    </string-array>
+    <string name="Save_Button">Guardar</string>
+
+    <string name="result">
+        Nombre: %1$s, Email: %2$s
+        \nPassword: %3$s, Sexo: %4$s
+        \nHobbies: %5$s,
+        \nFecha Nacimiento: %6$s
+        \nCiudad Nacimiento: %7$s
+    </string>
+</resources>

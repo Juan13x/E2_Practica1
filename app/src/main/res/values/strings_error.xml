@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="error_empty_name">No name entered. Enter one.</string>
+    <string name="error_empty_email">No email entered. Enter one.</string>
+    <string name="error_empty_password">No password entered. Enter one</string>
+    <string name="error_empty_Repeated_Password">No confirmation password entered. Enter one</string>
+    <string name="error_empty_birthday">No birthday entered. Enter one</string>
+    <string name="error_different_passwords">The passwords are different</string>
+</resources>
